@@ -7,6 +7,25 @@ output:
     code_folding: "show"
 ---
 
+***
+
+This is a pipeline to generate SBayesR predictors from summary statistics and calculate PRS for target data. 
+
+*Scripts and figures in this file are just examples. You will need to edit the scripts with your own data name, parameter and paths. Don't run them blindly.*
+
+
+The target data need to be QCed and imputed beforehand. 
+
+
+If the data set includes some phenotype, we can compare the PRS to real phenotype, and sometimes do case/control comparisons. 
+
+
+If the data set are all samples with certain disease, we would like to have a benchmark data set to compare with. It's ideal that the control data set could come from a random selection of population.  
+
+You can use the Rmd file in this repository for convenience. It's almost the same thing in this README file.
+
+
+
 ```{r,  message=FALSE, warning=FALSE}
 # You need these libraries to run this template:
 library(rmarkdown)    # install.packages("rmarkdown") 
@@ -21,10 +40,6 @@ library(gtools)
 
 
 <br><br>
-
-***
-
-This is a pipeline to generate SBayesR predictors from summary statistics and calculate PRS for target data. The target data need to be QCed and imputed beforehand. If the data set includes some phenotype, we can compare the PRS to phenotype, and sometimes do case/control comparisons. If the data set are all samples with certain disease, we would like to have a benchmark data set to compare with. It's ideal that the control data set could come from a random selection of population.  
 
 
 
@@ -85,7 +100,9 @@ ggplot(data=gwas, aes(x=freq, y=ukb.ref, color = outlier)) +
 
 <br><br>
 
-An example figure:
+It does not need to be too stringent. You can only remove the far outliers. 
+
+![example](Figures/af_between_gwas_and_ukb.png)
 
 
 ## check the distribution of marginal effect size of SNPs
@@ -193,9 +210,13 @@ traits.parRes = cbind(gwas.result[[1]], HET.result[[1]], BMI.result[[1]], T2D.re
 
 ```
 
+<br><br>
 
-![example](Figures/SBayesR_output_compared_to_marginal_effect.png)
-![example](Figures/SBR_table.png)
+![example figure](Figures/SBayesR_output_compared_to_marginal_effect.png)
+
+<br><br>
+
+![example table](Figures/SBR_table.png)
 
 
 # PRS profiling
@@ -207,7 +228,7 @@ awk '{print $2, $5, $8 }'  gwas_SBayesR.snpRes  > gwas_SBayesR_predictor.txt
 ```
 
 
-PRS can be profiles for all traits and all data set in a loop like this:
+PRS can be profiled for all traits and all data set in a loop like this:
 
 ```{r, eval = F, echo = T, engine='sh'}
 traitArray=("gwas" "Height"  "BMI" "T2D" "CARD" "GORD" "PUD" "GPM" "IBS" "IM" "IBD")
