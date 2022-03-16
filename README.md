@@ -93,6 +93,7 @@ ggplot(data=gwas, aes(x=freq, y=ukb.ref, color = outlier)) +
 <br><br>
 
 An example figure:
+![example](Figures/af_between_gwas_and_ukb.png)
 
 
 ## check the distribution of marginal effect size of SNPs
