@@ -220,7 +220,7 @@ awk '{print $2, $5, $8 }'  gwas_SBayesR.snpRes  > gwas_SBayesR_predictor.txt
 ```
 
 
-PRS can be profiles for all traits and all data set in a loop like this:
+PRS can be profiled for all traits and all data set in a loop like this:
 
 ```{r, eval = F, echo = T, engine='sh'}
 traitArray=("gwas" "Height"  "BMI" "T2D" "CARD" "GORD" "PUD" "GPM" "IBS" "IM" "IBD")
