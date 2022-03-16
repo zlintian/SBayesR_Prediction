@@ -1,8 +1,21 @@
 
 ***
 
-This is a pipeline to generate SBayesR predictors from summary statistics and calculate PRS for target data. The target data need to be QCed and imputed beforehand. If the data set includes some phenotype, we can compare the PRS to phenotype, and sometimes do case/control comparisons. If the data set are all samples with certain disease, we would like to have a benchmark data set to compare with. It's ideal that the control data set could come from a random selection of population.  
-Scripts in this file are examples. You need to edit them with your own data name, parameter and paths.
+This is a pipeline to generate SBayesR predictors from summary statistics and calculate PRS for target data. 
+
+*Scripts and figures in this file are just examples. You will need to edit the scripts with your own data name, parameter and paths. Don't run them blindly.**
+
+
+The target data need to be QCed and imputed beforehand. 
+
+
+If the data set includes some phenotype, we can compare the PRS to real phenotype, and sometimes do case/control comparisons. 
+
+
+If the data set are all samples with certain disease, we would like to have a benchmark data set to compare with. It's ideal that the control data set could come from a random selection of population.  
+
+
+
 
 
 ```{r,  message=FALSE, warning=FALSE}
@@ -187,9 +200,13 @@ traits.parRes = cbind(gwas.result[[1]], HET.result[[1]], BMI.result[[1]], T2D.re
 
 ```
 
+<br><br>
 
-![example](Figures/SBayesR_output_compared_to_marginal_effect.png)
-![example](Figures/SBR_table.png)
+![example figure](Figures/SBayesR_output_compared_to_marginal_effect.png)
+
+<br><br>
+
+![example table](Figures/SBR_table.png)
 
 
 # PRS profiling
