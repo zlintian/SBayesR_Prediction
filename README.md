@@ -92,7 +92,8 @@ ggplot(data=gwas, aes(x=freq, y=ukb.ref, color = outlier)) +
 
 <br><br>
 
-An example figure:
+It does not need to be too stringent. You can only remove the far outliers. 
+
 ![example](Figures/af_between_gwas_and_ukb.png)
 
 
