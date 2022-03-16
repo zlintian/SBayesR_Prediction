@@ -391,7 +391,7 @@ PRS are compared to real phenotype in point plot for quantitative traits.
 
 ```{r, eval = F}
 
-target.pheno = read.csv("../phenotype_from_Ian/ymh_heightweight_for genetics.csv", sep="\t")
+target.pheno = read.csv("pheno.csv", sep="\t")
 target.pheno$BMI = 10000* (target.pheno$weight_comb/(target.pheno$height_comb)^2)
 
 target.pheno$height.score = target.prs.norm[match(target.pheno$QIMR.No., row.names(target.prs.norm)), "Height"]
@@ -404,15 +404,12 @@ het.score.plot = ggplot(data=target.pheno[target.pheno$BMI < 40,], aes(x=BMI, y=
 ggarrange(bmi.score.plot,het.score.plot, nrow=1, ncol=2 , common.legend= F, labels = c("A", "B") )
 ```
 
-We can calculate the correlation.
+We can also calculate the correlation.
 
 ```{r, eval = F}
 
 print("correlation of Height pheno ~ score")
 cor(target.pheno$height_comb, target.pheno$height.score,  use = "pairwise.complete.obs")
-
-print("correlation of BMI pheno ~ score")
-cor(target.pheno$BMI, target.pheno$bmi.score,  use = "pairwise.complete.obs")
 
 print("correlation of BMI pheno ~ score without the BMI outlier")
 cor(target.pheno[target.pheno$BMI < 40,]$BMI, target.pheno[target.pheno$BMI < 40,]$bmi.score,  use = "pairwise.complete.obs")
