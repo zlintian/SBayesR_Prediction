@@ -3,7 +3,7 @@
 
 This is a pipeline to generate SBayesR predictors from summary statistics and calculate PRS for target data. 
 
-*Scripts and figures in this file are just examples. You will need to edit the scripts with your own data name, parameter and paths. Don't run them blindly.**
+*Scripts and figures in this file are just examples. You will need to edit the scripts with your own data name, parameter and paths. Don't run them blindly.*
 
 
 The target data need to be QCed and imputed beforehand. 
@@ -14,7 +14,7 @@ If the data set includes some phenotype, we can compare the PRS to real phenotyp
 
 If the data set are all samples with certain disease, we would like to have a benchmark data set to compare with. It's ideal that the control data set could come from a random selection of population.  
 
-
+You can use the Rmd file in this repository for convenience. It's almost the same thing in this README file.
 
 
 
